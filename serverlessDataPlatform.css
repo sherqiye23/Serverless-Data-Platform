@@ -1,0 +1,113 @@
+* {
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+html, body {
+    height: 100%;
+}
+
+body {
+    --head-from-color: #35d399;
+    --head-to-color: #fbe048;
+    --body-color: #1b2728;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background: radial-gradient(var(--body-color), black 60%);
+}
+
+h1 {
+    background-clip: text;
+    background-image: linear-gradient(to right, var(--head-from-color), var(--head-to-color));
+    color: transparent;
+    text-align: center;
+    font-size: 100px;
+    font-weight: 900;
+    margin-bottom: 50px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7px;
+    .col {
+        background: rgba(255, 255, 255, .05);
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 35px 40px;
+        gap: 5px;
+        cursor: pointer;
+        transition: 230ms all;
+        h6 {
+            color: white;
+            font-size: 22px;
+            font-weight: 500;
+        }
+        p {
+            color: rgba(255, 255, 255, .5);
+            font-size: 16px;
+        }
+        button {
+            height: 40px;
+            padding: 0 25px;
+            font-size: 16px;
+            background: #fff;
+            border-radius: 20px;
+            margin-top: 10px;
+            transition: 230ms all;
+        }
+    }
+}
+
+.col:first-child {
+    border-radius: 40px 5px 5px 40px;
+}
+.col:last-child {
+    border-radius: 5px 40px 40px 5px;
+}
+.col:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, .1);
+    button {
+        color: #fff;
+        background: var(--head-from-color);
+    }
+}
+
+body:has(.col:nth-child(1):hover) {
+    --head-from-color: #dc524b;
+    --head-to-color: #f5c9c8;
+    --body-color: #281b1b;
+}
+body:has(.col:nth-child(2):hover) {
+    --head-from-color: #4d80ee;
+    --head-to-color: #c2d8fa;
+    --body-color: #1b2028;
+}
+body:has(.col:nth-child(3):hover) {
+    --head-from-color: #f97316;
+    --head-to-color: #fed5a7;
+    --body-color: #2f241e;
+}
+body:has(.col:nth-child(4):hover) {
+    --head-from-color: #9d59ee;
+    --head-to-color: #e4d3fb;
+    --body-color: #261b28;
+}
+
+.grid:has(.col:hover) .col:not(:hover) button{
+    background: rgba(255, 255, 255, .05);
+    color: #fff;
+}
